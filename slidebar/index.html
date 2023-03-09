@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Slidebar</title>
+</head>
+<body>
+    <main>
+        <nav>
+            <div id="sb-wrapper">
+                <div id="sb-content">
+                    <div id="hd-wrapper">
+                        <a href="#"><img src="./images/logo.svg" alt="logo"></a>
+                        <a href="#" onclick="document.getElementById('sb-wrapper').classList.toggle('active')"><img src="./images/menu.svg" alt=""></a>
+                    </div>
+                    <div id="sb-item-wrapper">
+                        <div class="sb-item">
+                            <a href="#" target="_self">
+                                <img src="./images/search.svg" alt="busca ícone">
+                                <p>Buscar</p>
+                            </a>
+                        </div>
+                        <div class="sb-item">
+                            <a href="#" target="_self">
+                                <img src="./images/grid.svg" alt="dashboard ícone">
+                                <p>Dashboard</p>
+                            </a>
+                        </div>
+                        <div class="sb-item">
+                            <a href="#" target="_self">
+                                <img src="./images/pet.svg" alt="pets ícone">
+                                <p>Pets</p>
+                            </a>
+                        </div>
+                        <div class="sb-item">
+                            <a href="#" target="_self">
+                                <img src="./images/user.svg" alt="clientes ícone">
+                                <p>Clientes</p>
+                            </a>
+                        </div>
+                        <div class="sb-item">
+                            <a href="#" target="_self">
+                                <img src="./images/vet.svg" alt="veterinários ícone">
+                                <p>Vets</p>
+                            </a>
+                        </div>
+                        <div class="sb-item">
+                            <a href="#" target="_self">
+                                <img src="./images/settings.svg" alt="configurações ícone">
+                                <p>Ajustes</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="sb-profile">
+                    <div id="sb-avatar">
+                        <div id="profile-avatar"></div>
+                        <hgroup>
+                            <h2>Eleanor&nbsp;Pena</h2>
+                            <h3>Veterinária</h3>
+                        </hgroup>
+                    </div>
+                    <div id="sb-logout">
+                        <a href="#"><img src="./images/log-out.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="page-content">
+            <h1>Dashboard</h1>
+        </div>
+    </main>
+<script src="script.js"></script>
+</body>
+</html>
