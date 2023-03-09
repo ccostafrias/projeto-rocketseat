@@ -1,0 +1,179 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+/*Generic CSS*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    --box-shadow: hsla(0, 0%, 0%, 0.2);
+    
+    --font-color: #fffcf9;
+    --subtitle: #b3b3b3;
+    --bg-button: #e9e6e3;
+    --background: linear-gradient(43deg, #102d71 0%, #000000 52%, #c12a23 100%);
+
+    --font-main: 'Poppins', sans-serif;
+
+    --fs-xl: 2em;
+    --fs-600: 1.8em;
+    --fs-500: 1.4em;
+    --fs-400: 1em;
+    --fs-200: .8em;
+
+    --fw-regular: 300;
+    --fw-medium: 500;
+    --fw-bold: 700;
+}
+
+html,
+body {
+    min-height: 100vh;
+    width: 100vw;
+    font-size: 14px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+
+    background: var(--background);
+}
+
+body,
+input,
+textarea,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--font-color);
+    font-family: var(--font-main);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-regular);
+}
+
+::placeholder {
+    opacity: 1;
+    color: var(--font-color);
+}
+
+button, input {
+    appearance: none;
+    border: none;
+    background: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header .logo {
+    width: 100px;
+}
+
+header h1{
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+}
+
+button{
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    background: var(--bg-button);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-200);
+    color: black;
+
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+button::before{
+    content: '';
+    align-self: stretch;
+    justify-self: stretch;
+    background-image: url('./assets/shuffle.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+}
+
+button span, button::before{
+    display: inline-flex;
+}
+
+button:hover{
+    background: var(--font-color);
+}
+
+button .logo{
+    width: 40px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    max-width: 800px;
+    width: 90%;
+}
+
+.movie-data.active{
+    display: grid;
+    grid-template-columns: 180px auto;
+    align-items: center;
+    grid-gap: 20px;
+}
+
+.movie-poster{
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.movie-poster img{
+    width: 100%;
+    height: 100%;
+}
+
+.movie-info h2{
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+    margin-bottom: 20px;
+}
+
+footer p{
+    max-width: 400px;
+    color: var(--subtitle);
+    text-align: center;
+}
