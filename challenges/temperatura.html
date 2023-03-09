@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/generic-dark.css">
+    <title>Temperatura</title>
+
+    <style>
+        body{
+            font-size: 1.2rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .input-wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; 
+        }
+
+        input{
+            appearance: none;
+            outline: none;
+            padding: 5px;
+            background-color: #07364269;
+            border: 1px solid #586e75;
+            text-align: center;
+        }
+
+        .temp-convert{
+            font-size: 4rem;
+        }
+
+        .temp-convert:not(.active){
+            opacity: .5;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-wrapper">
+        <label for="temp">Escreva a temperatura</label>
+        <input type="text" id="temp" placeholder="Ex: 32 ºC">
+    </div>
+
+    <h2>Conversão</h2>
+    <span class="temp-convert">Esperando...</span>
+
+    <script>
+        const input = document.querySelector('input')
+        const tempConvert = document.querySelector('.temp-convert')
+        input.addEventListener('input', setTemp)
+
+        function setTemp(){
+            const temp = input.value.match(/[+-]?\d+(\.\d+)?/gi)
+            const grade = input.value.match(/\º?[CF]$/gi)
+
+            const re = /^[+-]?\d+(\.\d+)?\s?\º?[CF]$/gi
+            if (!input.value.match(re)) {
+                tempConvert.textContent = `NaN`
+                return   
+            }
+
+            tempConvert.textContent = `${convertTemp(temp, grade)}`
+        }
+
+        function convertTemp(temp, grade){
+            grade = String(grade)
+
+            if (grade.match(/\º?[C]/gi)) {
+                return `${(Number(temp) * 9/5 + 32).toFixed(2)} ºF`
+            } else {
+                return `${((Number(temp) - 32) * 5/9).toFixed(2)} ºC`
+            }
+
+        }
+
+        setTemp()
+    </script>
+    
+</body>
+</html>

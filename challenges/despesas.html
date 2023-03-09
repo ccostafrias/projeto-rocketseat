@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/generic-dark.css">
+    <title>Despesas</title>
+
+    <style>
+        p{
+            font-size: 1.2rem;
+        }
+
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .balance{
+            font-family: "Roboto", sans-serif;
+            font-size: 6rem;
+            font-weight: bold;
+        }
+
+        .neg{
+            color: brown;
+        }
+
+        .pos{
+            color: greenyellow;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <main>
+        <h1>Saldo da Família</h1>
+        <span class="balance"></span>
+    </main>
+
+    <script>
+        const incomes = [700, 200, 150, 1500, 150, 128.4, 1200, 378.51, 10000]
+        const expenses = [500, 489.99, 150, 120, 800, 1800, 520.52, 19.72, 6.69]
+        const balanceTxt = document.querySelector('.balance')
+
+        function balance(a, b) {
+            const value = a.reduce((tot, value) => tot + value) - b.reduce((tot, value) => tot + value)
+            value > 0 ? balanceTxt.classList.add('pos') : balanceTxt.classList.add('neg')
+
+            return value
+        }
+
+        balanceTxt.textContent = `${balance(incomes, expenses).toLocaleString("pt-BR", {style:"currency", currency:"BRL"})}`
+    </script>
+    
+</body>
+</html>

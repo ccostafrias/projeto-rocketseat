@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/generic-dark.css">
+    <title>Livros</title>
+
+    <style>
+        body {
+            font-size: 1.2rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        span {
+            font-size: 2rem;
+        }
+
+        li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input {
+            appearance: none;
+            outline: none;
+            padding: 5px;
+            background-color: #07364269;
+            border: 1px solid #586e75;
+            text-align: center;
+            align-self: center;
+        }
+
+        .search-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .books-author {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            align-self: center;
+            margin-top: 20px;
+        }
+
+        .books-author:not(.active) {
+            opacity: .5;
+        }
+
+        .book {
+            display: block;
+            background-color: #586e75;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        table {
+            font-size: 1.2rem;
+            width: 100%;
+        }
+
+        td:nth-child(2) {
+            text-align: center;
+        }
+
+        .indent {
+            display: flex;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <head>
+        <h1>Livros</h1>
+    </head>
+
+    <main>
+        <section>
+            <table class="book-data">
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section class="search-wrapper">
+            <h2>Livros por autor</h2>
+            <label for="search">Procure por autor</label>
+            <input type="text" name="search" id="search" placeholder="Ex: George S. Clason" list="authors">
+            <div class="books-author">Esperando...</div>
+
+            <datalist id="authors"></datalist>
+        </section>
+    </main>
+
+    <script>
+        const booksByCategory = [
+
+            {
+                category: "Riqueza",
+                books: [
+                    {
+                        title: "Os segredos da mente milionária",
+                        author: "T. Harv Eker",
+                    },
+                    {
+                        title: "O homem mais rico da Babilônia",
+                        author: "George S. Clason",
+                    },
+                    {
+                        title: "Pai rico, pai pobre",
+                        author: "Robert T. Kiyosaki e Sharon L. Lechter",
+                    }
+                ]
+            },
+            {
+                category: "Inteligência Emocional",
+                books: [
+                    {
+                        title: "Você é Insubstituível",
+                        author: "Augusto Cury",
+                    },
+                    {
+                        title: "Ansiedade – Como enfrentar o mal do século",
+                        author: "Augusto Cury",
+                    },
+                    {
+                        title: "Os 7 hábitos das pessoas altamente eficazes",
+                        author: "Stephen R. Covey",
+                    }
+                ]
+            }
+        ]
+
+        const datalist = document.querySelector("#authors")
+        let authors = booksByCategory
+            .reduce((authorsTot, category) => {
+                return authorsTot.concat((category.books.reduce((authors, book) => {
+                    if (!authorsTot.includes(book.author.split(' e '))) return authors.concat(book.author.split(' e '))
+                }, [])))
+            }, [])
+
+        
+            
+        const removeDuplicates = (arr) => {
+            return arr.filter((item, index) => arr.indexOf(item) === index);
+        }
+        authors = removeDuplicates(authors)
+
+        datalist.innerHTML = authors.map(author => `<option value="${author}">`).join("")
+
+        const bookData = document.querySelector('tbody')
+        const categories = booksByCategory.length
+        bookData.innerHTML = `<tr><td>Categorias:</td><td>${booksByCategory.length}</td></tr>`
+
+        bookData.innerHTML += booksByCategory
+            .map(book => {
+                return `<tr><td class="indent">${book.category}:</td><td>${book.books.length}</td></tr>`
+            }).join('')
+
+        const numAuthors = authors.length
+        bookData.innerHTML += `<tr><td>Total autores:</td><td>${numAuthors}</td></tr>`
+
+        function booksByAuthor(authorFind) {
+            const books = booksByCategory.reduce((books, cat) => {
+                const toConcat = cat.books.filter(book => book.author.includes(authorFind)).map(author => author.title)
+                return books.concat(toConcat)
+            }, [])
+
+            const booksAuthorTxt = document.querySelector('.books-author')
+            booksAuthorTxt.innerHTML = books.map(book => `<span class="book">${book}</span>`).join('')
+            booksAuthorTxt.classList.add('active')
+        }
+
+        const input = document.querySelector('input')
+        input.addEventListener('input', () => { booksByAuthor(input.value) })
+
+        booksByAuthor(input.value)
+
+    </script>
+
+</body>
+
+</html>

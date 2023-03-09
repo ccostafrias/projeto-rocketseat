@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/generic-dark.css">
+    <title>Notas</title>
+
+    <style>
+        td{
+            font-size: 1.2rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .balance{
+            font-size: 6rem;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <table>
+            <tr class="grades-num"></tr>
+            <tr class="grades-letter"></tr>
+        </table>
+    </main>
+
+    <script>
+        const notas = [100, 55, 42, 77, 12, 0, 29, 15, 25, 88, 90]
+        function numToLetter(grades){
+            return grades.map(grade => {
+                if (grade >= 90 && grade <= 100) return 'A'
+                if (grade >= 80) return 'B'
+                if (grade >= 70) return 'C'
+                if (grade >= 60) return 'D'
+                if (grade < 60 && grade >= 0) return 'F'
+                else return 'NaN'
+            })
+        }
+
+        const gradesNum = document.querySelector('.grades-num')
+        const gradesLetter = document.querySelector('.grades-letter')
+
+
+        gradesNum.innerHTML = notas.map(nota => `<td>${nota}</td>`).join('')
+        gradesLetter.innerHTML = numToLetter(notas).map(nota => `<td>${nota}</td>`).join('')
+    </script>
+    
+</body>
+</html>
