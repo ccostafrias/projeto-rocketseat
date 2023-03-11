@@ -12,4 +12,6 @@
    * [Livros](https://ccostafrias.github.io/projeto-rocketseat/challenges/livros.html)
    * [Temperatura](https://ccostafrias.github.io/projeto-rocketseat/challenges/temperatura.html)
    * [Notas](https://ccostafrias.github.io/projeto-rocketseat/challenges/notas.html)
+   * [Botões](https://ccostafrias.github.io/projeto-rocketseat/challenges/buttons.html)
+   * [Galeria](https://ccostafrias.github.io/projeto-rocketseat/challenges/gallery.html)
 
