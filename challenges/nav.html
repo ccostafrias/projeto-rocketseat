@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <title>Nav</title>
+
+    <style>
+        body {
+            height: 100%;
+        }
+
+        header {
+            background-color: var(--font-color);
+            padding: 20px;
+        }
+
+        header > nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: .8rem;
+        }
+
+        nav > * {
+            color: var(--hbg-color);
+        }
+
+        nav > h1 {
+            font-weight: var(--fw-bold);
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        nav > ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: .8rem;
+        }
+
+        nav > ul > li {
+            text-transform: uppercase;
+        }
+
+        nav > ul > :last-child {
+            padding: .5rem;
+            background-color: var(--secundary-color);
+            border-radius: 5px;
+            cursor: pointer;
+
+            transition: opacity .2s ease;
+        }
+
+        nav > :last-child:hover {
+            opacity: .8;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Logo</h1>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+
+</html>

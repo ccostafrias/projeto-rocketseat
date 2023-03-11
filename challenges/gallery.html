@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <title>Geleria</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <img src="https://picsum.photos/id/101/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/202/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/330/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/404/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/505/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/606/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/770/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/808/300/300" alt="random image" class="photo">
+            <img src="https://picsum.photos/id/909/300/300" alt="random image" class="photo">
+        </div>
+    </main>
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: .8rem;
+            padding: 2rem;
+        }
+
+        .photo {
+            border: .2rem solid var(--hbg-color);
+            background-image: url('https://picsum.photos/300/300');
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+    
+</body>
+</html>
