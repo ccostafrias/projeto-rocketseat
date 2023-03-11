@@ -6,12 +6,16 @@
 
 ## Projetos atuais
 
+### Desafios
+
 * [Sidebar](https://ccostafrias.github.io/projeto-rocketseat/slidebar/)
 * [Random Movie API](https://ccostafrias.github.io/projeto-rocketseat/movie/)
-* Challenges:
-   * [Livros](https://ccostafrias.github.io/projeto-rocketseat/challenges/livros.html)
-   * [Temperatura](https://ccostafrias.github.io/projeto-rocketseat/challenges/temperatura.html)
-   * [Notas](https://ccostafrias.github.io/projeto-rocketseat/challenges/notas.html)
-   * [Botões](https://ccostafrias.github.io/projeto-rocketseat/challenges/buttons.html)
-   * [Galeria](https://ccostafrias.github.io/projeto-rocketseat/challenges/gallery.html)
+
+### Exercícios
+
+* [Livros](https://ccostafrias.github.io/projeto-rocketseat/challenges/livros.html)
+* [Temperatura](https://ccostafrias.github.io/projeto-rocketseat/challenges/temperatura.html)
+* [Notas](https://ccostafrias.github.io/projeto-rocketseat/challenges/notas.html)
+* [Botões](https://ccostafrias.github.io/projeto-rocketseat/challenges/buttons.html)
+* [Galeria](https://ccostafrias.github.io/projeto-rocketseat/challenges/gallery.html)
 
