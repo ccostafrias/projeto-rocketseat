@@ -1,6 +1,6 @@
-const getFlag = require('./getflag')
+const getFlagValue = require('./flags')
 
-const name = getFlag('--name')
-const greetings = getFlag('--greetings')
+const name = getFlagValue('--name')
+const greetings = getFlagValue('--greetings')
 
 console.log(`${greetings}, ${name}?`)
