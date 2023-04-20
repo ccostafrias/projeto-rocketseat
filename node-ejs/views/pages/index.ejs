@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include('../partials/head'); %>
+
+<body class="container">
+
+    <%- include('../partials/header'); %>
+
+    <main class="jumbotron">
+        <div>
+            <h1>Node com EJS</h1>
+            <p>Vamos aprender a trabalhar com arquivos EJS</p>
+        </div>
+    </main>
+
+    <ul>
+        <% qualities.forEach(quality => { %>
+            <li>
+                <strong><%= quality.title %></strong><%= String(quality.message).slice(1) %>
+            </li>
+        
+        <% }) %>
+    </ul>
+
+    <%- include('../partials/footer'); %>
+    
+</body>
+</html>
